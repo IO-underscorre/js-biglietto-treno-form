@@ -70,11 +70,15 @@ header {
     position: absolute;
     top: 0;
     width: 100%;
-    padding: 0 4rem;
     height: var(--top-bar-height);
     color: var(--primary-color);
     background-color: var(--background-color);
     box-shadow: .25rem 0 0.125rem #00000080;
+}
+
+#top-bar > div {
+    height: 100%;
+    padding: 0 4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -179,7 +183,7 @@ label {
     border: 2px solid var(--primary-color);
     border-radius: 0.25rem;
     border-color: var(--primary-color);
-    outline: none !important; 
+    outline: none !important;
 }
 
 .input-main:focus {
@@ -190,11 +194,30 @@ label {
 
 
 @media all and (max-width: 1100px) {
+    #top-bar > div {
+        padding: 0;
+        width: 90%;
+        margin: 0 auto;
+    }
+
     .nav-links , .nav-btn {
         display: none;
     }
 
     .nav-menu {
         display: block;
+    }
+}
+
+
+@media all and (max-width: 850px) {
+    form {
+        width: 100%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(4, auto);
+    }
+
+    form > div:last-child {
+        grid-column: span 1;
     }
 }
