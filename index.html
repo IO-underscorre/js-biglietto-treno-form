@@ -50,14 +50,43 @@
     </header>
 
     <main>
-        <section>
-            <P>
-                The price for a <b><span id="user-age"></span> years old</b> person of a ride <b><span id="travel-distance"></span> km long</b> is:
-            </P>
+        <section id="ticket-generator">
+            <h2>
+                GENERATE YOUR TICKET
+            </h2>
 
-            <strong>
-                &euro; <span id="ticket-price"></span>
-            </strong>
+            <div class="details-container">
+                <form>
+                    <!-- Name -->
+                    <div>
+                        <label for="input-name">Nome e Cognome</label>
+                        <input type="text" id="input-name" class="input-main" aria-label="Name" required>
+                    </div>
+    
+                    <!-- Distance -->
+                    <div>
+                        <label for="distance-imput">Km to travel</label>
+                        <input type="number" step=".01" id="distance-imput" class="input-main" aria-label="Travel distance" required>
+                    </div>
+    
+                    <!-- Age range -->
+                    <div>
+                        <label for="age-input">Age range</label>
+                        <select id="age-input" class="input-main" aria-label="Age range" required>
+                            <option value="" selected>Chose</option>
+                            <option value="underage">Underage</option>
+                            <option value="adult">Adult</option>
+                            <option value="overage">Over 65</option>
+                        </select>
+                    </div>
+    
+                    <!-- Submit and reset -->
+                    <div>
+                        <input class="visual-btn" type="submit" value="Generate">
+                        <input class="visual-btn secondary" type="reset" value="Cancel">
+                    </div>
+                </form>
+            </div>
         </section>
     </main>
 

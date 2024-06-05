@@ -17,6 +17,7 @@
 
 body {
     color: var(--details-color);
+    background-color: var(--primary-color);
 }
 
 menu , li {
@@ -30,12 +31,21 @@ a {
 
 /* Buttons */
 .visual-btn {
+    display: inline-block;
+    font-size: 1em;
     font-weight: 500;
     line-height: 1;
     padding: .5em .75em;
-    border-radius: .5em;
+    border-radius: .25em;
     color: var(--background-color);
+    border: .1em solid var(--primary-color);
     background-color: var(--primary-color);
+}
+
+.visual-btn.secondary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    background-color: var(--background-color);
 }
 
 .visual-btn:hover {
@@ -60,12 +70,13 @@ header {
     position: absolute;
     top: 0;
     width: 100%;
+    padding: 0 4rem;
     height: var(--top-bar-height);
     color: var(--primary-color);
     background-color: var(--background-color);
     box-shadow: .25rem 0 0.125rem #00000080;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -94,27 +105,67 @@ header {
     font-size: 1.25rem;
 }
 
+
 /* MAIN */
 section {
     width: 90%;
-    min-height: calc((100vh - var(--top-bar-height)) * 0.8);
-    max-width: 45rem;
-    margin: calc((100vh - var(--top-bar-height)) * 0.1) auto 0;
-    padding: 1.25rem;
-    border-radius: 2.5rem;
-    background-color: var(--primary-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    max-width: 60rem;
+    margin: 0 auto;
     text-align: center;
-    gap: 2rem;
-}
-
-section p {
-    font-size: 1.75rem;
-}
-
-section strong {
-    font-size: 4rem;
+    padding: 1.5rem 0;
     color: var(--background-color);
+}
+
+section .details-container{
+    padding: 1.25rem;
+    color: var(--primary-color);
+    background-color: var(--background-color);
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Ticket generator */
+#ticket-generator .details-container {
+    border-radius: 2.5rem;
+    box-shadow: 0 0 1rem #00000080;
+}
+
+form {
+    display: grid;
+    width: 40rem;
+    margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 2rem;
+    font-size: 1.25rem;
+}
+
+form > div:last-child {
+    grid-column: span 3;
+    font-size: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: .75rem;
+}
+
+.input-main {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 1.25rem;
+    appearance: none;
+    border: 2px solid var(--primary-color);
+    border-radius: 0.25rem;
+    border-color: var(--primary-color);
+    outline: none !important; 
+}
+
+.input-main:focus {
+    box-shadow: 0 0 .5rem inset #00000080;
+    border-color: var(--details-color);
 }
