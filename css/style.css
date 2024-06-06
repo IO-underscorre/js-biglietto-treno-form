@@ -148,7 +148,7 @@ h2 {
     margin-bottom: 1.5rem;
 }
 
-/* Ticket generator */
+/* Ticket generator section */
 #ticket-generator .details-container {
     border-radius: 2.5rem;
     box-shadow: 0 0 1rem #00000080;
@@ -158,8 +158,8 @@ form {
     display: grid;
     width: 40rem;
     margin: 0 auto;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, auto);
+    grid-template-columns: repeat(3 , 1fr);
+    grid-template-rows: repeat(2 , auto);
     gap: 2rem;
     font-size: 1.25rem;
 }
@@ -191,9 +191,48 @@ label {
     border-color: var(--details-color);
 }
 
+/* Your ticket section */
+#your-ticket {
+    display: none;
+}
+
+h3 {
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+.ticket {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(6 , 1fr);
+    grid-template-rows: auto;
+    text-align: right;
+}
+
+.ticket > div {
+    border-top: 1px solid var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
+    padding: 1rem;
+}
+
+.ticket > div:first-child {
+    text-align: left;
+    grid-column: span 2;
+    font-weight: 600;
+    color: white;
+    background-color: var(--primary-color);
+}
+
+.ticket span {
+    display: block;
+    margin-top: 2.5rem;
+    color: var(--details-color);
+}
+
 
 
 @media all and (max-width: 1100px) {
+    /* Navigation Bar */
     #top-bar > div {
         padding: 0;
         width: 90%;
@@ -211,6 +250,7 @@ label {
 
 
 @media all and (max-width: 850px) {
+    /* Ticket generator section */
     form {
         width: 100%;
         grid-template-columns: repeat(1, 1fr);
@@ -218,6 +258,27 @@ label {
     }
 
     form > div:last-child {
+        grid-column: span 1;
+    }
+
+    /* Your ticket section */
+    .ticket {
+        grid-template-columns: repeat(3 , 1fr);
+        grid-template-rows: repeat(2 , auto);
+        text-align: right;
+    }
+}
+
+
+@media all and (max-width: 500px) {
+    /* Your ticket section */
+    .ticket {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5 , auto);
+        text-align: right;
+    }
+
+    .ticket > div:first-child {
         grid-column: span 1;
     }
 }
