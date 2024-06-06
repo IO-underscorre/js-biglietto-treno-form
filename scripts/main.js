@@ -1,16 +1,30 @@
-const travelDistance =  parseFloat(prompt("Insert the lenght of your train ride in kilometers"));
-const userAge = parseInt(prompt("Insert your age"));
+// Random function
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+const ticketGenerator = document.getElementById("ticket-form");
 const pricePerKm = 0.21;
 
-// dicountedPrice is the totality of price (1) minus the discount fraction
-let discountedPricePct = userAge > 65 ? 0.6 : userAge < 18 ? 0.8 : 1;
-
-// Ticket price calculator
-let ticketPrice = Math.round(((travelDistance * pricePerKm * discountedPricePct) + Number.EPSILON) * 100) / 100;
-
-// Print and log
-console.log(ticketPrice)
-
-document.getElementById("travel-distance").innerHTML = travelDistance;
-document.getElementById("user-age").innerHTML = userAge;
-document.getElementById("ticket-price").innerHTML = ticketPrice;
+ticketGenerator.addEventListener("submit" , 
+    function ()  { 
+        const travelDistance = parseFloat(document.getElementById("distance-imput").value);
+        const userAge = parseInt(document.getElementById("age-input").value);
+        
+        // dicountedPrice is the totality of price (1) minus the discount fraction
+        let discountedPriceFr = userAge === "overage" ? 0.6 : userAge === "underage" ? 0.8 : 1;
+        
+        // Ticket price calculator
+        let ticketPrice = Math.round(((travelDistance * pricePerKm * discountedPriceFr) + Number.EPSILON) * 100) / 100;
+        
+        // Ticket section enabler
+        document.getElementById("your-ticket").style.display = "block";
+        
+        // Ticket infos filler
+        document.getElementById("user-name").innerHTML = document.getElementById("input-name").value;
+        document.getElementById("offer-type").innerHTML = "Standard";
+        document.getElementById("carriage").innerHTML = getRandomInt(0, 20);
+        document.getElementById("ticket-code").innerHTML = getRandomInt(1000, 9999);
+        document.getElementById("ticket-price").innerHTML = "&euro; " + ticketPrice;
+    }
+);
